@@ -1,0 +1,32 @@
+name: manage-azure-policy-5880623d
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'policies/TS_-_Windows_machines_should_meet_requirements_for_Windows_Firewall_Properties_968b4f44-24e3-4930-80b0-723476b7e6d7/**'
+#      - .github/workflows/manage-azure-policy-5880623d.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_5880623d}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          policies/TS_-_Windows_machines_should_meet_requirements_for_Windows_Firewall_Properties_968b4f44-24e3-4930-80b0-723476b7e6d7/**
