@@ -1,0 +1,32 @@
+name: manage-azure-policy-44ebe1ea
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'initiatives/_Preview_Windows_machines_should_meet_requirements_for_the_Azure_compute_security_baseline_be7a78aa-3e10-4153-a5fd-8c6506dbc821/**'
+#      - .github/workflows/manage-azure-policy-44ebe1ea.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_44ebe1ea}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          initiatives/_Preview_Windows_machines_should_meet_requirements_for_the_Azure_compute_security_baseline_be7a78aa-3e10-4153-a5fd-8c6506dbc821/**
