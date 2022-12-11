@@ -1,0 +1,35 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "identity": {
+  "principalId": "cbea9131-968d-4ce3-92c6-483397b43cf1",
+  "tenantId": "579ecbfc-5195-43c5-8c32-71ebee6c8ea0",
+  "type": "SystemAssigned"
+ },
+ "properties": {
+  "displayName": "Inherit a tag from the resource group if missing yyy",
+  "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ea3f2387-9b95-492a-a190-fcdc54f7b070",
+  "scope": "/subscriptions/76f84c07-ddd5-438a-b1a8-4f849f3d99a4/resourceGroups/MC_dev-es-frontdoor-we-rg_dev-es-multiingress-aks-1_westeurope",
+  "notScopes": [],
+  "parameters": {
+   "tagName": {
+    "value": "yyy"
+   }
+  },
+  "metadata": {
+   "assignedBy": "Petr Štěpán",
+   "parameterScopes": {},
+   "createdBy": "48f7f406-0287-4e09-b80c-3987635946c7",
+   "createdOn": "2022-12-11T11:19:55.4920395Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/subscriptions/76f84c07-ddd5-438a-b1a8-4f849f3d99a4/resourceGroups/MC_dev-es-frontdoor-we-rg_dev-es-multiingress-aks-1_westeurope/providers/Microsoft.Authorization/policyAssignments/5c71e161fbb2426bb519c622",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "5c71e161fbb2426bb519c622",
+ "location": "westeurope"
+}
